@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-# TODO здесь тоже нужно подключить Swagger и corsheaders
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -82,12 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# TODO здесь мы настраиваем аутентификацию и пагинацию
-REST_FRAMEWORK = {
-}
-# TODO здесь мы настраиваем Djoser
-DJOSER = {
-}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

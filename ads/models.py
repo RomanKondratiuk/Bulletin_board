@@ -1,17 +1,19 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
+from django.db.models import CASCADE
 
 NULLABLE = {'blank': True, 'null': True}
 
 
-class Product(models.Model):
-    image = models.ImageField(upload_to="images/", verbose_name="product image", **NULLABLE)
-    title = models.CharField(max_length=255, verbose_name="product name")
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="product price")
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='product author', **NULLABLE)
-    created_at = models.DateField(default=timezone.now, verbose_name="product creation date")
-    description = models.TextField(verbose_name="product description")
+class Ad(models.Model):
+    image = models.ImageField(upload_to="images/", verbose_name="ad image", **NULLABLE)
+    title = models.CharField(max_length=255, verbose_name="ad name")
+    price = models.IntegerField(verbose_name="ad price")
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='ad author',
+                               **NULLABLE)
+    created_at = models.DateTimeField(default=timezone.now, verbose_name="ad creation date and time")
+    description = models.TextField(verbose_name="ad description")
 
     def __str__(self):
         return f"{self.title}"
@@ -19,8 +21,20 @@ class Product(models.Model):
     class Meta:
         verbose_name = "product"
         verbose_name_plural = "products"
+        ordering = ['-created_at']
 
 
 class Comment(models.Model):
-    # TODO добавьте поля модели здесь
-    pass
+    text = models.TextField(verbose_name="comment text")
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, verbose_name='comment author',
+                               **NULLABLE)
+    ad = models.ForeignKey(Ad, on_delete=CASCADE, verbose_name='the ad under which the review was left', **NULLABLE)
+    created_at = models.DateTimeField(default=timezone.now, verbose_name="comment creation date and time")
+
+    def __str__(self):
+        return f"{self.text}"
+
+    class Meta:
+        verbose_name = "comment"
+        verbose_name_plural = "comments"
+

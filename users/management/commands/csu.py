@@ -11,7 +11,8 @@ class Command(BaseCommand):
             last_name='Kondratiuk',
             is_staff=True,
             is_superuser=True,
-            role='admin'
+            role='admin',
+            city='Odessa'
         )
 
         user.set_password('roma_2001')

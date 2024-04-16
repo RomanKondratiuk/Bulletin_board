@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from users.serializers import UserSerializer
 from .models import Comment, Ad
 
 
@@ -13,12 +14,12 @@ class AdSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ad
-        fields = ('id', 'title', 'price')
+        fields = ('id', 'title', 'price', 'description', "author")
 
 
 class AdDetailSerializer(serializers.ModelSerializer):
     """ Used for detailed ad view, includes all fields and detailed information """
-    # author_details = UserSerializer(source='author', read_only=True)
+    author_details = UserSerializer(source='author', read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:

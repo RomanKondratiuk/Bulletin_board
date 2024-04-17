@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+    */env/*,
+    */migrations/*,
+    node_modules/,
+    build/,
+    dist/,
+    env/,
+    venv/
+max-line-length = 120

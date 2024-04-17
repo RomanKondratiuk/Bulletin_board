@@ -37,4 +37,3 @@ class Comment(models.Model):
     class Meta:
         verbose_name = "comment"
         verbose_name_plural = "comments"
-

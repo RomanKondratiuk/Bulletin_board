@@ -1,19 +1,16 @@
-from rest_framework import pagination, viewsets, generics
+from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-
 from .models import Ad, Comment
+from .paginators import AdPagination
 from .permissions import IsOwner, IsAdmin
 from .serializers import AdSerializer, AdDetailSerializer, CommentSerializer
-
-
-class AdPagination(pagination.PageNumberPagination):
-    pass
 
 
 class AdListApiView(generics.ListAPIView):
     """ Ads list """
     serializer_class = AdSerializer
     queryset = Ad.objects.all()
+    pagination_class = AdPagination
 
 
 class AdCreateApiView(generics.CreateAPIView):

@@ -12,6 +12,16 @@ class AdListApiView(generics.ListAPIView):
     queryset = Ad.objects.all()
     pagination_class = AdPagination
 
+    def get_queryset(self):
+        """
+        search advertisements by name
+        """
+        queryset = self.queryset
+        title = self.request.query_params.get('title')
+        if title is not None:
+            queryset = queryset.filter(title__icontains=title)
+        return queryset
+
 
 class AdCreateApiView(generics.CreateAPIView):
     """ creating an ad """

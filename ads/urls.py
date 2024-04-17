@@ -1,7 +1,8 @@
 from django.urls import path
 from .apps import SalesConfig
-from .views import AdListApiView, AdCreateApiView, AdRetrieveApiView,\
-    AdUpdateApiView, AdDestroyApiView
+from .views import AdListApiView, AdCreateApiView, AdRetrieveApiView, \
+    AdUpdateApiView, AdDestroyApiView, CommentListApiView, CommentCreateApiView, CommentUpdateApiView, \
+    CommentDestroyApiView
 
 # TODO настройка роутов для модели
 app_name = SalesConfig.name
@@ -16,4 +17,12 @@ urlpatterns = [
          name='ad-update'),
     path('ad/delete/<int:pk>/', AdDestroyApiView.as_view(),
          name='ad-delete'),
+
+
+    path('comments/', CommentListApiView.as_view(), name=' comments list'),
+    path('comment/create/', CommentCreateApiView.as_view(), name='comment-create'),
+    path('comment/update/<int:pk>/', CommentUpdateApiView.as_view(),
+         name='comment-update'),
+    path('comment/delete/<int:pk>/', CommentDestroyApiView.as_view(),
+         name='comment-delete'),
 ]

@@ -55,7 +55,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=255, verbose_name="last name")
     email = models.EmailField(unique=True, verbose_name="email")
     phone = models.CharField(max_length=20, verbose_name="phone number", **NULLABLE)
-    city = models.CharField(max_length=35, verbose_name="city", **NULLABLE)
+    city = models.CharField(max_length=35, verbose_name="city", default="")
     avatar = models.ImageField(upload_to="users/", verbose_name="avatar", **NULLABLE)
     role = models.CharField(max_length=20, choices=UserRoles.choices, default=UserRoles.USER)
     is_staff = models.BooleanField(default=False, verbose_name="staff status")

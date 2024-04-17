@@ -10,9 +10,7 @@ class Command(BaseCommand):
             first_name='Roman',
             last_name='Kondratiuk',
             is_staff=True,
-            is_superuser=True,
-            role='admin',
-            city='Odessa'
+            is_superuser=True
         )
 
         user.set_password('roma_2001')

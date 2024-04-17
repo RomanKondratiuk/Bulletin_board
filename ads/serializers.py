@@ -5,8 +5,9 @@ from .models import Comment, Ad
 
 class CommentSerializer(serializers.ModelSerializer):
     """ Used to view comments """
-    model = Comment
-    fields = '__all__'
+    class Meta:
+        model = Comment
+        fields = '__all__'
 
 
 class AdSerializer(serializers.ModelSerializer):

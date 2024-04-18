@@ -6,7 +6,7 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       PG_DATA: /var/vib/postgresql/data/pgdata
     volumes:
       - pg_data:/var/vib/postgresql/data/pgdata

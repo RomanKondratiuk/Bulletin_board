@@ -7,7 +7,7 @@ class CommentSerializer(serializers.ModelSerializer):
     """ Used to view comments """
     class Meta:
         model = Comment
-        fields = '__all__'
+        fields = ('text', 'author', 'ad')
 
 
 class AdSerializer(serializers.ModelSerializer):

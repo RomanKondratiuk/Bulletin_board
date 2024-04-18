@@ -19,7 +19,7 @@ urlpatterns = [
          name='ad-delete'),
 
 
-    path('comments/', CommentListApiView.as_view(), name=' comments list'),
+    path('comments/', CommentListApiView.as_view(), name='comments-list'),
     path('comment/create/', CommentCreateApiView.as_view(), name='comment-create'),
     path('comment/update/<int:pk>/', CommentUpdateApiView.as_view(),
          name='comment-update'),

@@ -19,8 +19,8 @@ class Ad(models.Model):
         return f"{self.title}"
 
     class Meta:
-        verbose_name = "product"
-        verbose_name_plural = "products"
+        verbose_name = "ad"
+        verbose_name_plural = "ad"
         ordering = ['-created_at']
 
 

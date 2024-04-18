@@ -9,7 +9,7 @@ app_name = SalesConfig.name
 
 
 urlpatterns = [
-    path('', AdListApiView.as_view(), name=' ad list'),
+    path('', AdListApiView.as_view(), name='ad-list'),
     path('ad/create/', AdCreateApiView.as_view(), name='ad-create'),
     path('ad/<int:pk>/', AdRetrieveApiView.as_view(),
          name='read one ad'),

@@ -1,0 +1,9 @@
+[run]
+include = ads/*
+omit =
+    */migrations/*
+    */tests.py
+    manage.py
+    config/asgi.py
+    config/wsgi.py
+    users/management/*

@@ -9,7 +9,7 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_HOST_AUTH_METHOD: ${DB_HOST}
+      POSTGRES_HOST_AUTH_METHOD: ${POSTGRES_HOST_AUTH_METHOD}
       PG_DATA: /var/vib/postgresql/data/pgdata
     volumes:
       - pg_data:/var/vib/postgresql/data/pgdata

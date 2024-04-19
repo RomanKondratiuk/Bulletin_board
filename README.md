@@ -46,7 +46,11 @@ After starting the server, you can use the API according to the documentation of
 - User registration and authentication.
 - Creating, viewing, editing, and deleting ads and comments.
 
+## Testing
 
+Run tests to ensure the application functions correctly:
+
+python manage.py test
 
 ## Deployment
 
@@ -55,4 +59,5 @@ Follow the standard procedure for deploying Django projects for production deplo
 ## Built With
 
 - Django & DRF for the backend.
+- Docker for containerization and deployment.
 

@@ -7,6 +7,7 @@ NULLABLE = {'blank': True, 'null': True}
 
 
 class Ad(models.Model):
+    """ Ads model """
     image = models.ImageField(upload_to="images/", verbose_name="ad image", **NULLABLE)
     title = models.CharField(max_length=255, verbose_name="ad name")
     price = models.IntegerField(verbose_name="ad price")
